@@ -1,6 +1,7 @@
 package cn.lemonit.tencent_cloud_im_server_sdk;
 
 import cn.lemonit.tencent_cloud_im_server_sdk.service.GroupManageService;
+import cn.lemonit.tencent_cloud_im_server_sdk.service.SnsManageService;
 import cn.lemonit.tencent_cloud_im_server_sdk.service.UserManageService;
 import cn.lemonit.tencent_cloud_im_server_sdk.utils.UserSigUtil;
 import lombok.Getter;
@@ -60,6 +61,7 @@ public class IMClient {
 
     private UserManageService userManageService;
     private GroupManageService groupManageService;
+    private SnsManageService snsManageService;
 
     public UserManageService getUserManageService() {
         if (this.userManageService == null) {
@@ -73,5 +75,12 @@ public class IMClient {
             this.groupManageService = new GroupManageService(this);
         }
         return groupManageService;
+    }
+
+    public SnsManageService getSnsManageService() {
+        if (snsManageService == null) {
+            snsManageService = new SnsManageService(this);
+        }
+        return snsManageService;
     }
 }
