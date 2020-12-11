@@ -1,10 +1,10 @@
 package cn.lemonit.tencent_cloud_im_server_sdk.service;
 
+import cn.hutool.json.JSONUtil;
 import cn.lemonit.tencent_cloud_im_server_sdk.Common;
 import cn.lemonit.tencent_cloud_im_server_sdk.model.sns.AddFriendItem;
 import cn.lemonit.tencent_cloud_im_server_sdk.model.sns.ReqFriendAdd;
 import cn.lemonit.tencent_cloud_im_server_sdk.model.sns.RespFriendAdd;
-import cn.lemonit.tencent_cloud_im_server_sdk.utils.JsonUtil;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -31,7 +31,7 @@ class SnsManageServiceTest {
                     .ForceAddFlags(1)
                     .build();
             RespFriendAdd result = Common.createClient().getSnsManageService().friendAdd(reqFriendAdd);
-            System.out.println("请求结果：" + JsonUtil.gsonObj().toJson(result));
+            System.out.println("请求结果：" + JSONUtil.toJsonStr(result));
         });
     }
 

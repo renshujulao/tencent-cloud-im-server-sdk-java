@@ -8,7 +8,7 @@ import cn.lemonit.tencent_cloud_im_server_sdk.model.sns.ReqFriendAdd;
 import cn.lemonit.tencent_cloud_im_server_sdk.model.sns.RespBlackListAdd;
 import cn.lemonit.tencent_cloud_im_server_sdk.model.sns.RespFriendAdd;
 
-public class SnsManageService extends BaseService {
+public class SnsManageService extends CommonService {
     private static final String SERVICE_NAME = "sns";
     private static final String COMMAND_PREFIX = "COMMAND";
 
