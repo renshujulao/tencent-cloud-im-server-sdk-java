@@ -1,12 +1,12 @@
 package cn.lemonit.tencent_cloud_im_server_sdk.service;
 
+import cn.hutool.json.JSONUtil;
 import cn.lemonit.tencent_cloud_im_server_sdk.Common;
 import cn.lemonit.tencent_cloud_im_server_sdk.enums.group.GroupApplyJoinOption;
 import cn.lemonit.tencent_cloud_im_server_sdk.enums.group.GroupType;
 import cn.lemonit.tencent_cloud_im_server_sdk.model.common.MessageBodyContentText;
 import cn.lemonit.tencent_cloud_im_server_sdk.model.common.MessageBodyText;
 import cn.lemonit.tencent_cloud_im_server_sdk.model.group.*;
-import cn.lemonit.tencent_cloud_im_server_sdk.utils.JsonUtil;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -26,7 +26,7 @@ class GroupManageServiceTest {
                             .Limit(10)
                             .Next(0L).build()
             );
-            System.out.println("请求结果：" + JsonUtil.gsonObj().toJson(result));
+            System.out.println("请求结果：" + JSONUtil.toJsonStr(result));
         });
     }
 
@@ -41,7 +41,7 @@ class GroupManageServiceTest {
                             .Type(GroupType.ChatRoom)
                             .ApplyJoinOption(GroupApplyJoinOption.FreeAccess)
                             .build());
-            System.out.println("请求结果：" + JsonUtil.gsonObj().toJson(result));
+            System.out.println("请求结果：" + JSONUtil.toJsonStr(result));
         });
     }
 
@@ -56,7 +56,7 @@ class GroupManageServiceTest {
                             .MemberList(Collections.singletonList(
                                     ReqAddGroupMember_GroupMemberItem.builder().Member_Account("administrator").build())
                             ).build());
-            System.out.println("请求结果：" + JsonUtil.gsonObj().toJson(result));
+            System.out.println("请求结果：" + JSONUtil.toJsonStr(result));
         });
     }
 
@@ -68,7 +68,7 @@ class GroupManageServiceTest {
                     ReqRemoveGroupMember.builder()
                             .Silence(1).GroupId("test")
                             .MemberToDel_Account(Collections.singletonList("administrator")).build());
-            System.out.println("请求结果：" + JsonUtil.gsonObj().toJson(result));
+            System.out.println("请求结果：" + JSONUtil.toJsonStr(result));
         });
     }
 
@@ -83,7 +83,7 @@ class GroupManageServiceTest {
                             .MsgBody(Collections.singletonList(new MessageBodyText(
                                     MessageBodyContentText.builder().Text("").build()
                             ))).build());
-            System.out.println("请求结果：" + JsonUtil.gsonObj().toJson(result));
+            System.out.println("请求结果：" + JSONUtil.toJsonStr(result));
         });
     }
 
@@ -96,7 +96,7 @@ class GroupManageServiceTest {
                             .GroupId("test")
                             .Content("{\"content\":\"notification\"}")
                             .build());
-            System.out.println("请求结果：" + JsonUtil.gsonObj().toJson(result));
+            System.out.println("请求结果：" + JSONUtil.toJsonStr(result));
         });
     }
 
@@ -108,7 +108,7 @@ class GroupManageServiceTest {
                     ReqDestroyGroup.builder()
                             .GroupId("test")
                             .build());
-            System.out.println("请求结果：" + JsonUtil.gsonObj().toJson(result));
+            System.out.println("请求结果：" + JSONUtil.toJsonStr(result));
         });
     }
 }
